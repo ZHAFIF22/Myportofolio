@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zhafif | Portofolio</title>
+<meta name="description" content="Portofolio Zhafif, konten kreator edukasi dan dakwah Islami, peminatan bisnis travel.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0d1f;
+    --bg-2: #121735;
+    --panel: #171d42;
+    --gold: #f5c542;
+    --gold-soft: #ffe08a;
+    --cyan: #3fd0ff;
+    --red: #ff4d6d;
+    --text: #eef1ff;
+    --muted: #9aa3cc;
+    --line: rgba(245, 197, 66, 0.35);
+    --radius: 14px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: "Inter", system-ui, sans-serif;
+    background:
+      radial-gradient(1200px 600px at 10% -10%, rgba(63, 208, 255, 0.12), transparent 60%),
+      radial-gradient(900px 500px at 110% 10%, rgba(255, 77, 109, 0.12), transparent 60%),
+      var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, .display {
+    font-family: "Chakra Petch", sans-serif;
+    letter-spacing: 0.04em;
+  }
+
+  a { color: inherit; }
+
+  :focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  .wrap {
+    width: min(1040px, 92%);
+    margin: 0 auto;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(10, 13, 31, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  nav .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 62px;
+  }
+
+  .brand {
+    font-family: "Chakra Petch", sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.4rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 0.92rem;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold-soft); }
+
+  /* HERO */
+  .hero {
+    padding: 4.5rem 0 3.5rem;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .role-tag {
+    display: inline-block;
+    padding: 0.3rem 0.9rem;
+    border: 1px solid var(--cyan);
+    color: var(--cyan);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.6rem, 7vw, 4.4rem);
+    line-height: 1.05;
+    color: var(--text);
+  }
+
+  .hero h1 span { color: var(--gold); }
+
+  .hero p.lead {
+    margin-top: 1rem;
+    color: var(--muted);
+    max-width: 520px;
+  }
+
+  .hero-actions {
+    margin-top: 1.8rem;
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    font-family: "Chakra Petch", sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+
+  .btn:hover { transform: translateY(-2px); }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold), #ff9f43);
+    color: #1a1000;
+    box-shadow: 0 6px 20px rgba(245, 197, 66, 0.25);
+  }
+
+  .btn-ghost {
+    border: 1px solid var(--line);
+    color: var(--gold-soft);
+  }
+
+  /* Kartu pahlawan (hero card) */
+  .hero-card {
+    position: relative;
+    background: linear-gradient(160deg, var(--panel), var(--bg-2));
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 2rem 1.6rem;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .hero-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 30%, rgba(245, 197, 66, 0.22), transparent 65%);
+    pointer-events: none;
+  }
+
+  .avatar {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    border: 3px solid var(--gold);
+    display: grid;
+    place-items: center;
+    font-family: "Chakra Petch", sans-serif;
+    font-size: 3.4rem;
+    font-weight: 700;
+    color: var(--gold);
+    background: var(--bg);
+    box-shadow: 0 0 30px rgba(245, 197, 66, 0.3);
+  }
+
+  .hero-card h3 {
+    position: relative;
+    font-size: 1.4rem;
+    color: var(--text);
+  }
+
+  .hero-card .sub {
+    position: relative;
+    color: var(--cyan);
+    font-size: 0.9rem;
+    margin-top: 0.2rem;
+  }
+
+  .stats {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .stats div {
+    background: rgba(10, 13, 31, 0.6);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 0.6rem 0.3rem;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  .stats strong {
+    display: block;
+    font-family: "Chakra Petch", sans-serif;
+    font-size: 0.95rem;
+    color: var(--gold-soft);
+    font-weight: 600;
+  }
+
+  /* SECTIONS */
+  section { padding: 3.5rem 0; }
+
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .section-head h2 {
+    font-size: 1.7rem;
+    color: var(--gold);
+  }
+
+  .section-head::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--line), transparent);
+  }
+
+  .panel {
+    background: linear-gradient(160deg, var(--panel), var(--bg-2));
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.6rem;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+
+  .about-grid .panel p { color: var(--muted); }
+
+  .info-list {
+    list-style: none;
+    display: grid;
+    gap: 0.7rem;
+  }
+
+  .info-list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px dashed rgba(154, 163, 204, 0.25);
+    font-size: 0.95rem;
+  }
+
+  .info-list span:first-child { color: var(--muted); }
+  .info-list span:last-child { text-align: right; }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.6rem;
+  }
+
+  .chip {
+    padding: 0.35rem 0.85rem;
+    border-radius: 8px;
+    background: rgba(63, 208, 255, 0.1);
+    border: 1px solid rgba(63, 208, 255, 0.4);
+    color: var(--text);
+    font-size: 0.88rem;
+  }
+
+  .chip.gold {
+    background: rgba(245, 197, 66, 0.1);
+    border-color: var(--line);
+    color: var(--gold-soft);
+  }
+
+  .panel h3 {
+    font-size: 1.05rem;
+    color: var(--gold-soft);
+  }
+
+  /* KONTEN */
+  .content-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .content-card {
+    background: var(--panel);
+    border: 1px solid rgba(154, 163, 204, 0.2);
+    border-radius: var(--radius);
+    padding: 1.3rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .content-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-3px);
+  }
+
+  .content-card .icon {
+    font-size: 1.6rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .content-card h3 {
+    font-size: 1rem;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+  }
+
+  .content-card p {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    border-left: 2px solid var(--line);
+    margin-left: 0.5rem;
+    padding-left: 1.4rem;
+    display: grid;
+    gap: 1.4rem;
+  }
+
+  .timeline-item { position: relative; }
+
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -1.82rem;
+    top: 0.4rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 10px var(--gold);
+  }
+
+  .timeline-item h3 { font-size: 1.05rem; color: var(--text); }
+  .timeline-item .meta { color: var(--cyan); font-size: 0.85rem; }
+  .timeline-item p { color: var(--muted); font-size: 0.92rem; margin-top: 0.2rem; }
+
+  /* KONTAK */
+  .contact-box {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+  }
+
+  .contact-box p { color: var(--muted); margin-bottom: 1.4rem; }
+
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center;
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem 0;
+    color: var(--muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--line);
+  }
+
+  /* ANIMASI MASUK SATU KALI */
+  .reveal {
+    animation: rise 0.7s ease both;
+  }
+
+  .reveal.d1 { animation-delay: 0.1s; }
+  .reveal.d2 { animation-delay: 0.2s; }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation: none !important;
+      transition: none !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* RESPONSIF */
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; text-align: center; }
+    .hero p.lead { margin-inline: auto; }
+    .hero-actions { justify-content: center; }
+    .content-grid { grid-template-columns: 1fr 1fr; }
+    .about-grid { grid-template-columns: 1fr; }
+    .chips { justify-content: center; }
+  }
+
+  @media (max-width: 600px) {
+    .nav-links { gap: 0.8rem; }
+    .nav-links a { font-size: 0.8rem; }
+    .content-grid { grid-template-columns: 1fr; }
+    .brand { font-size: 1.05rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#beranda" class="brand">ZHAFIF</a>
+    <ul class="nav-links">
+      <li><a href="#tentang">Tentang</a></li>
+      <li><a href="#skill">Skill</a></li>
+      <li><a href="#konten">Konten</a></li>
+      <li><a href="#pendidikan">Pendidikan</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap" id="beranda">
+    <header class="hero">
+      <div class="reveal">
+        <span class="role-tag">Peminatan: Bisnis Travel</span>
+        <h1>Halo, saya <span>Zhafif</span></h1>
+        <p class="lead">Konten kreator edukasi dan dakwah Islami. Saya membagikan ilmu, pengalaman, dan inspirasi lewat konten yang mudah dipahami.</p>
+        <div class="hero-actions">
+          <a href="#kontak" class="btn btn-primary">Hubungi Saya</a>
+          <a href="#tentang" class="btn btn-ghost">Lihat Profil</a>
+        </div>
+      </div>
+
+      <div class="hero-card reveal d1">
+        <div class="avatar">Z</div>
+        <h3>Zhafif</h3>
+        <p class="sub">Konten Kreator · Bisnis Travel</p>
+        <div class="stats">
+          <div>Lokasi<strong>Jakarta Utara</strong></div>
+          <div>Bahasa<strong>3 Bahasa</strong></div>
+          <div>Fokus<strong>Edukasi</strong></div>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <section id="tentang">
+    <div class="wrap">
+      <div class="section-head"><h2>Tentang Saya</h2></div>
+      <div class="about-grid">
+        <div class="panel">
+          <h3>About Me</h3>
+          <p style="margin-top:0.6rem">Saya memiliki minat di bidang konten kreator dan sering membagikan konten edukasi serta dakwah Islami. Saya ingin berbagi manfaat dan terus belajar bersama audiens.</p>
+        </div>
+        <div class="panel">
+          <h3>Informasi Dasar</h3>
+          <ul class="info-list" style="margin-top:0.8rem">
+            <li><span>Nama</span><span>Zhafif</span></li>
+            <li><span>Peminatan</span><span>Bisnis Travel</span></li>
+            <li><span>Alamat</span><span>Jakarta Utara</span></li>
+            <li><span>Kontak</span><span>0881012157165</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skill">
+    <div class="wrap">
+      <div class="section-head"><h2>Skill</h2></div>
+      <div class="about-grid">
+        <div class="panel">
+          <h3>Soft Skill</h3>
+          <div class="chips">
+            <span class="chip">Jujur</span>
+            <span class="chip">Public Speaking</span>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Hard Skill</h3>
+          <div class="chips">
+            <span class="chip gold">Editing</span>
+          </div>
+        </div>
+        <div class="panel" style="grid-column: 1 / -1;">
+          <h3>Bahasa</h3>
+          <div class="chips">
+            <span class="chip">Inggris</span>
+            <span class="chip">Arab</span>
+            <span class="chip">Korea</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="konten">
+    <div class="wrap">
+      <div class="section-head"><h2>Konten</h2></div>
+      <div class="content-grid">
+        <article class="content-card">
+          <div class="icon">📚</div>
+          <h3>Konten Edukasi</h3>
+          <p>Membagikan pengetahuan dan wawasan yang sederhana dan mudah dipahami.</p>
+        </article>
+        <article class="content-card">
+          <div class="icon">🕌</div>
+          <h3>Dakwah Islami</h3>
+          <p>Menyampaikan nilai-nilai keislaman dengan cara yang ringan dan menyejukkan.</p>
+        </article>
+        <article class="content-card">
+          <div class="icon">✈️</div>
+          <h3>Bisnis Travel</h3>
+          <p>Minat pada dunia perjalanan, layanan wisata, dan pengembangan usaha travel.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="pendidikan">
+    <div class="wrap">
+      <div class="section-head"><h2>Pendidikan</h2></div>
+      <div class="panel">
+        <div class="timeline">
+          <div class="timeline-item">
+            <h3>Universitas Ibn Khaldun</h3>
+            <p class="meta">Fakultas Manajemen Haji Umrah</p>
+            <p>Mempelajari manajemen perjalanan haji dan umrah sebagai bekal di bidang bisnis travel.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontak">
+    <div class="wrap">
+      <div class="section-head"><h2>Kontak</h2></div>
+      <div class="panel contact-box">
+        <p>Ingin berkolaborasi atau sekadar menyapa? Silakan hubungi saya.</p>
+        <div class="contact-links">
+          <a href="tel:+62881012157165" class="btn btn-primary">📞 0881012157165</a>
+          <a href="mailto:ahmadzhafi22@gmail.com" class="btn btn-ghost">✉️ ahmadzhafi22@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 Zhafif · Dibuat dengan semangat Mobile Legends</p>
+</footer>
+
+</body>
+</html>
